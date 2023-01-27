@@ -6,7 +6,7 @@ RUN echo 'root:root' | chpasswd && \
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
     make \
-    texlive-latex-base
+    texlive-latex-extra
 
 USER dev
 WORKDIR /ws
