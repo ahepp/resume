@@ -32,7 +32,7 @@ pipeline {
               $USER \
               $PASS \
               main.pdf \
-              /$S3_BUCKET/ahepp/resume/$(basename $GIT_BRANCH)-latest.pdf
+              /$S3_BUCKET/ahepp/resume/latest/resume.pdf
           '''
           sh '''
             DESC=$(git describe)
@@ -41,7 +41,7 @@ pipeline {
               $USER \
               $PASS \
               main.pdf \
-              /$S3_BUCKET/ahepp/resume/$(basename $GIT_BRANCH)-$DESC.pdf
+              /$S3_BUCKET/ahepp/resume/resume-$DESC.pdf
           '''
         }
       }
