@@ -20,6 +20,9 @@ pipeline {
           args '-v ${WORKSPACE}:/ws'
         }
       }
+      options {
+        skipDefaultCheckout()
+      }
       steps {
         withCredentials([usernamePassword(credentialsId: 'jenkins-s3-creds',
             usernameVariable: 'USER', passwordVariable: 'PASS')]) {
