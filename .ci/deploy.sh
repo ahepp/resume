@@ -6,7 +6,7 @@ file=$4
 resource=$5
 
 scheme="https"
-content_type="application/octet-stream"
+content_type="application/pdf"
 date=`date -R`
 _signature="PUT\n\n${content_type}\n${date}\n${resource}"
 signature=`echo -en ${_signature} | openssl sha1 -hmac ${s3_secret} -binary | base64`
