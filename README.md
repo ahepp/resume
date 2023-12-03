@@ -1,1 +1,1 @@
-[resume](https://s3.hepp.cloud/public/ahepp/resume/latest/resume.pdf)
+[resume](https://s3.amazonaws.com/ahepp.dev/public/resume/latest/AHeppResume.pdf)
