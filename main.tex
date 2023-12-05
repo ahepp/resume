@@ -1,91 +1,10 @@
-\documentclass{article}
-
-\usepackage{geometry}
-\geometry{
-    a4paper,
-    left=20mm,
-    top=15mm,
-}
-
-\usepackage{sectsty}
-\sectionfont{
-    \Large
-    \sectionrule{0pt}{0pt}{-5pt}{1pt}
-}
-
-\usepackage{enumitem}
-\setlist{noitemsep}
-
-\pagestyle{empty}
-
-\newcommand{\experience}[4]{
-    \noindent \textbf{#1} \hfill \textbf{#2} \par
-    \noindent #3 \hfill \textit{#4} \par
-}
-
-\title{Resume}
-\author{Andrew Hepp}
+\input{style}
+\input{meta}
 
 \begin{document}
-    \begin{center}
-       \Huge Andrew Hepp \normalsize
-    \end{center}
-    ahepp0@gmail.com\hfill(269) 615-8353
-
-    \section*{Work}
-        \experience{Senior Software Engineer}{August 2020 - June 2023}{Spectranetix}{Seattle, WA}
-        \begin{itemize}
-            \item Created custom Petalinux-based Linux distribution for Zynq Ultrascale+ product.
-            \item Maintained custom Yocto-based Linux distribution for TI AM57xx and TI AM335x products.
-            \item Contributed patches to upstream Yocto layers.
-            \item Wrote C/C++ web services for radio control (VICTORY/MORA).
-            \item Wrote VoIP-to-radio bridging software for company's first tactical communications product.
-            \item Supported customer acceptance and field testing of VoIP tactical communications products.
-        \end{itemize}
-
-        \experience{Computer Engineer II}{June 2016 - August 2020}{DCS Corporation}{Warren, MI}
-        \begin{itemize}
-            \item Wrote reference implementation of C++ web services for vehicle system control (VICTORY).
-            \item Contributed change proposals to VICTORY standard committee.
-            \item Wrote drivers for baremetal TMS570 Cortex-R SoC controlling heavy vehicle electrical systems.
-        \end{itemize}
-
-    \section*{Projects}
-        \noindent \textbf{Espresso Machine}
-        \begin{itemize}
-            \item Wrote Linux driver for thermocouple ADC and successfully submitted to mainline kernel.
-            \item Modified Gaggia espresso machine with Raspberry Pi Zero W based PID temperature controller.
-            \item Rewired machine internals to run Pi off power supply and allow PWM control of boiler.
-            \item Modeled and 3D-printed enclosure fitting original equipment footprint.
-            \item Created custom Buildroot-based Linux OS for target board.
-            \item Wrote custom PID control software in C and Rust.
-            \item Wrote web UI for online PID tuning.
-        \end{itemize}
-
-        \noindent \textbf{Plant Monitor}
-        \begin{itemize}
-            \item Created custom Yocto-based Linux distribution for Raspberry Pi Zero W.
-            \item Wrote encrypted OTA update mechanism for Pi.
-            \item Interfaced with I2C moisture sensor and relay driven water pump in userspace.
-            \item Logged soil moisture data to cloud service over wifi.
-        \end{itemize}
-
-        \noindent \textbf{Dog Tracker}
-        \begin{itemize}
-            \item Wrote Micropython software for ESP32, interfacing with I2C GPS module and LTE modem.
-            \item Wrote Go web app deployed on Google App Engine to display dog's location on map.
-        \end{itemize}
-
-    \section*{Education}
-        \experience{BS Computer Engineering}{2013 - 2017}{University of Michigan}{Ann Arbor, MI}
-
-    \section*{Misc}
-        \noindent Skills:
-        \begin{itemize}
-            \item C, C++, Python, Rust
-            \item Buildroot, Petalinux, Yocto
-            \item I2C, SPI, UART, ADC, PWM, IIO
-        \end{itemize}
-        \noindent Clearance: Top Secret \par
-
+    \input{contact/contact}
+    \input{work/work}
+    \input{projects/projects}
+    \input{ed/ed}
+    \input{misc/misc}
 \end{document}
