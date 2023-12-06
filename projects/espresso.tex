@@ -1,10 +1,9 @@
 \noindent \textbf{Espresso Machine}
 \begin{itemize}
-    \item Wrote Linux driver for thermocouple ADC and successfully submitted to mainline kernel.
-    \item Modified Gaggia espresso machine with Raspberry Pi Zero W based PID temperature controller.
-    \item Rewired machine internals to run Pi off power supply and allow PWM control of boiler.
-    \item Modeled and 3D-printed enclosure fitting original equipment footprint.
-    \item Created custom Buildroot-based Linux OS for target board.
+    \item Added custom Raspberry Pi Zero W based PID controller to Gaggia espresso machine, resulting in 30x reduction in temperature steady state error.
+    \item Wrote Linux driver for thermocouple ADC and successfully submitted to mainline Linux kernel.
+    \item Built custom Buildroot-based Linux OS for target board to incorporate custom drivers, applications, and configuration settings into a single distributable SD card image.
     \item Wrote custom PID control software in C and Rust.
-    \item Wrote web UI for online PID tuning.
+    \item Wrote web UI with Rust backend using inter-process communication to enable online PID tuning.
+    \item Profiled temperature stability and analyzed with Octave to generate graphics for blog posts.
 \end{itemize}
