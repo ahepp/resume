@@ -1,4 +1,4 @@
-name: 'build' 
+name: 'Build Resume'
 on:
   push:
     branches:
@@ -8,24 +8,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
 
-      - name: Checkout (GitHub)
-        uses: actions/checkout@v3
-
-      - name: Build and run dev container task
+      - name: Build Resume
         uses: devcontainers/ci@v0.3
         with:
-          # Change this to be your CI task/script
           runCmd: make
             
-      - name: Configure AWS Credentials
-        id: creds
+      - name: Configure S3 Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
 
-      - name: Upload to S3
+      - name: Deploy to S3
         run: |
           aws s3 cp main.pdf s3://ahepp.dev/public/resume/latest/AHeppResume.pdf
