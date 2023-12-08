@@ -1,0 +1,22 @@
+name: 'Leave comment linking to preview on PR'
+on:
+  pull_request:
+    types: ['opened']
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on GitHub PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{secrets.GH_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '![preview of resume produced by pull request ${{ github.event.pull_request.number }}](https://s3.amazonaws.com/ahepp.dev/public/resume/previews/pr-${{ github.event.pull_request.number }}.png)'
+            })
