@@ -18,5 +18,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '![preview of resume produced by pull request ${{ github.event.pull_request.number }}](https://s3.amazonaws.com/ahepp.dev/public/resume/previews/pr-${{ github.event.pull_request.number }}.png)'
+              body: '![preview of resume produced by pull request ${{ github.event.pull_request.number }}](https://s3.amazonaws.com/ahepp.dev/public/resume/previews/pr-${{ github.event.pull_request.number }}.png?)'
             })
