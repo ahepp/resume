@@ -25,4 +25,6 @@ jobs:
       - name: Deploy to S3
         run: |
           aws s3 cp main.pdf s3://ahepp.dev/public/resume/latest/AHeppResume.pdf
-          aws s3 cp main.png s3://ahepp.dev/public/resume/previews/main.png
+          aws s3 cp main.png s3://ahepp.dev/public/resume/previews/main.png \
+            --metadata-directive REPLACE \
+            --cache-control no-cache
