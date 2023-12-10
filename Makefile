@@ -5,4 +5,4 @@ preview: resume
 	convert -density 600 main.pdf -alpha remove -quality 90 main.png
 .PHONY: clean
 clean:
-	rm -f main.aux main.log main.pdf
+	rm -f main.aux main.log main.pdf main.png
