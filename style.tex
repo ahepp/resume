@@ -1,4 +1,6 @@
 \documentclass{article}
+\pagestyle{empty}
+\raggedright
 
 \usepackage{geometry}
 \geometry{
@@ -10,20 +12,16 @@
 
 \usepackage{sectsty}
 \sectionfont{
-    \Large
+    \large
     \sectionrule{0pt}{0pt}{-8pt}{1pt}
 }
 
 \usepackage{enumitem}
-\setlist{itemsep=0em, leftmargin=5mm, topsep=1mm}
-
-\pagestyle{empty}
-\raggedright
+\setlist{itemsep=0mm, leftmargin=5mm, topsep=1mm}
 
 \newcommand{\experience}[3]{
     \noindent \textbf{#1} -- \textit{#2} \hfill \textbf{#3} \par
 }
 \newcommand{\subexperience}[1]{
-    \vspace{1mm}
     \noindent \textit{#1} \par
 }
