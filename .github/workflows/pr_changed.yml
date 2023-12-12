@@ -1,7 +1,7 @@
 name: 'Generate resume preview and upload to S3'
 on:
   pull_request:
-    types: ['opened', 'edited']
+    types: ['opened', 'synchronize']
     branches:
       - main
 
