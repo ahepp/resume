@@ -1,7 +1,7 @@
 name: 'Generate resume preview and upload to S3'
 on:
   pull_request:
-    types: ['opened', 'edited']
+    types: ['opened', 'synchronize']
     branches:
       - main
 
@@ -23,8 +23,20 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
 
-      - name: Deploy to S3
+      - name: Generate diff
         run: |
-          aws s3 cp main.png s3://ahepp.dev/public/resume/previews/pr-${{ github.event.pull_request.number }}.png\
-            --metadata-directive REPLACE \
-            --cache-control no-cache
+          ./.ci/scripts/do_diff.sh \
+              ${{ github.event.pull_request.base.sha }}
+
+      - name: Upload previews to S3
+        run: |
+          ./.ci/scripts/do_upload.sh \
+              ${{ github.event.pull_request.base.sha }} \
+              ${{ github.event.pull_request.head.sha }}
+      - name: Comment on PR
+        run: |
+          ./.ci/scripts/do_comment.sh \
+              ${{ secrets.GH_TOKEN }} \
+              ${{ github.event.pull_request.number }} \
+              ${{ github.event.pull_request.base.sha }} \
+              ${{ github.event.pull_request.head.sha }}

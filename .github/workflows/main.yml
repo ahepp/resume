@@ -28,3 +28,4 @@ jobs:
           aws s3 cp main.png s3://ahepp.dev/public/resume/previews/main.png \
             --metadata-directive REPLACE \
             --cache-control no-cache
+          aws s3 cp main.png s3://ahepp.dev/public/resume/previews/${{ github.sha }}.png

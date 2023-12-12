@@ -10,9 +10,14 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     make \
     texlive-latex-extra
 
-RUN sed -i_bak \
-    's/rights="none" pattern="PDF"/rights="read | write" pattern="PDF"/' \
-    /etc/ImageMagick-6/policy.xml
+RUN sed \
+    -e 's/rights="none" pattern="PDF"/rights="read | write" pattern="PDF"/' \
+    -e 's/domain="resource" name="area" value=".*"/domain="resource" name="area" value="256MB"/' \
+    -e 's/domain="resource" name="memory" value=".*"/domain="resource" name="memory" value="1GiB"/' \
+    -e 's/domain="resource" name="map" value=".*"/domain="resource" name="map" value="2GiB"/' \
+    -e 's/domain="resource" name="disk" value=".*"/domain="resource" name="disk" value="4GiB"/' \
+    -i /etc/ImageMagick-6/policy.xml
+
 
 USER dev
 WORKDIR /ws
